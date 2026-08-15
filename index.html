@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WellTrack - Student Burnout Monitoring</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">◌</span><span>WellTrack</span></a>
+    <nav class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Create Account</a>
+      <button type="button" data-theme>Theme</button>
+    </nav>
+  </header>
+  <main class="hero">
+    <section>
+      <h1>Monitor your routine before it becomes too heavy.</h1>
+      <p>WellTrack helps students record daily mood, stress, sleep, study hours, and motivation, then turns those records into understandable burnout risk indicators and calm recommendations.</p>
+      <div class="tags">
+        <a class="button" href="register.html">Create Account</a>
+        <a class="button secondary" href="login.html">Login</a>
+      </div>
+    </section>
+    <section class="hero-card orb-card">
+      <div>
+        <h2>Informational Risk Indicator</h2>
+        <p class="muted">Calculated from your own recorded data. Not a diagnosis.</p>
+      </div>
+      <div class="risk-ring" style="--score:32"><div><strong>32</strong><span>Healthy</span></div></div>
+      <div class="grid three">
+        <div class="card"><div class="label">Sleep</div><div class="metric">7.5h</div></div>
+        <div class="card"><div class="label">Stress</div><div class="metric">4/10</div></div>
+        <div class="card"><div class="label">Study</div><div class="metric">6h</div></div>
+      </div>
+    </section>
+  </main>
+  <div id="toast-root"></div>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
