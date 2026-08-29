@@ -2,38 +2,29 @@
 
 > A frontend-only well-being tracking prototype for recording daily habits, visualising trends, and generating rule-based burnout-risk indicators.
 
-## What it does
+## Overview
 
-Student Burnout Monitor lets students record:
+Student Burnout Monitor turns daily self-reported data into a simple personal dashboard. Users can record mood, stress, sleep, study hours, and motivation, then review trends and rule-based indicators over time.
 
-- Mood
-- Stress
-- Sleep duration
-- Study hours
-- Motivation
-
-It then turns those records into dashboards, historical trends, risk indicators, recommendations, streaks, achievements, and exportable data.
-
-> **Important:** the burnout score is an application-level informational indicator. It is not clinically validated and is **not a medical or psychological diagnosis**.
+> **Important:** The burnout score is an application-level informational indicator. It is not clinically validated and is not a medical or psychological diagnosis.
 
 ## Features
 
-- Account creation and local login flow
 - Daily well-being check-ins
-- Burnout-risk scoring from user-entered data
-- Risk explanations
-- Rule-based recommendations
+- Mood, stress, sleep, study-hour, and motivation tracking
+- Rule-based burnout-risk scoring
+- Risk explanations and recommendations
 - Weekly and monthly trend views
-- Check-in history with search/filtering
+- Searchable check-in history
 - Streaks and achievements
-- JSON/CSV export
+- JSON/CSV data export
 - Light/dark mode
 - Responsive interface
-- Local browser persistence
+- Browser-local persistence
 
-## How the score works
+## Risk scoring
 
-The current prototype uses a deterministic weighted formula based on stress, motivation, mood, sleep, and study hours. The result is normalised to **0–100** and grouped into:
+The current prototype uses a deterministic weighted formula based on stress, motivation, mood, sleep, and study hours. The result is normalised to **0–100**:
 
 | Score | Indicator |
 |---:|---|
@@ -41,7 +32,7 @@ The current prototype uses a deterministic weighted formula based on stress, mot
 | 40–69 | Moderate Risk |
 | 70–100 | High Risk |
 
-This is a product prototype, not a clinically validated assessment.
+This scoring system is a product prototype and should not be interpreted as a clinical assessment.
 
 ## Architecture
 
@@ -55,7 +46,7 @@ LocalStorage
 Local scoring + recommendation engine
 ```
 
-There is currently **no backend, database, external AI service, or cloud persistence**. All records and analysis remain in the browser.
+There is currently **no backend, database, external AI service, or cloud persistence**. User records remain in the browser.
 
 ## Tech stack
 
@@ -66,26 +57,23 @@ There is currently **no backend, database, external AI service, or cloud persist
 
 ## Run locally
 
-Clone the repository and open `index.html` in a modern browser, or serve the directory locally:
-
 ```bash
 python -m http.server 8765 --bind 127.0.0.1
 ```
 
-Then visit `http://127.0.0.1:8765/index.html`.
+Then open `http://127.0.0.1:8765/index.html` in a browser.
 
 ## Roadmap
 
-The prototype is a foundation for a more robust well-being analytics application. Planned engineering work includes:
-
-- Real backend authentication and persistence
-- Secure multi-user data storage
-- Longitudinal trend analysis
-- Better explainability for recommendations
-- Optional AI-assisted summaries of user-entered patterns
-- Privacy-conscious anonymised institutional analytics
-- Automated tests and CI
+- [ ] Add backend authentication and persistence
+- [ ] Add secure multi-user storage
+- [ ] Improve longitudinal trend analysis
+- [ ] Improve recommendation explainability
+- [ ] Add optional AI-assisted summaries
+- [ ] Add privacy-conscious anonymised analytics
+- [ ] Add automated tests and CI
+- [ ] Deploy a public demo
 
 ## Project status
 
-**Prototype / active learning project.** The current version intentionally keeps the architecture simple so the product and scoring workflow can be explored quickly.
+**Prototype / active learning project.** The current version intentionally keeps the architecture simple while exploring the product and scoring workflow.
