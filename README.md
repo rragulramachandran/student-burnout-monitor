@@ -1,79 +1,56 @@
 # Student Burnout Monitor
 
-> A frontend-only well-being tracking prototype for recording daily habits, visualising trends, and generating rule-based burnout-risk indicators.
-
-## Overview
-
-Student Burnout Monitor turns daily self-reported data into a simple personal dashboard. Users can record mood, stress, sleep, study hours, and motivation, then review trends and rule-based indicators over time.
-
-> **Important:** The burnout score is an application-level informational indicator. It is not clinically validated and is not a medical or psychological diagnosis.
+A browser-based well-being tracking prototype for recording daily check-ins, viewing trends, and calculating a transparent, rule-based burnout-risk indicator.
 
 ## Features
 
-- Daily well-being check-ins
-- Mood, stress, sleep, study-hour, and motivation tracking
-- Rule-based burnout-risk scoring
-- Risk explanations and recommendations
+- Daily check-ins for mood, stress, sleep, study hours, and motivation
+- Rule-based indicator and explanatory recommendations
 - Weekly and monthly trend views
 - Searchable check-in history
 - Streaks and achievements
-- JSON/CSV data export
-- Light/dark mode
-- Responsive interface
-- Browser-local persistence
+- JSON/CSV export
+- Light/dark mode and responsive layout
+- Browser-local data persistence
 
-## Risk scoring
+## How it works
 
-The current prototype uses a deterministic weighted formula based on stress, motivation, mood, sleep, and study hours. The result is normalised to **0–100**:
+```text
+Browser interface
+      ↓
+Vanilla JavaScript
+      ↓
+Local scoring and recommendation logic
+      ↓
+Browser LocalStorage
+```
 
-| Score | Indicator |
-|---:|---|
+This version uses HTML, CSS, vanilla JavaScript, and browser LocalStorage. It has no backend, database, cloud synchronisation, or external AI service. Records are stored in the current browser profile and may be lost if its site data is cleared.
+
+## Risk indicator and limitations
+
+The prototype normalises its rule-based score to a 0–100 range:
+
+| Score | Application label |
+| ---: | --- |
 | 0–39 | Healthy |
 | 40–69 | Moderate Risk |
 | 70–100 | High Risk |
 
-This scoring system is a product prototype and should not be interpreted as a clinical assessment.
-
-## Architecture
-
-```text
-Browser UI
-   ↓
-Vanilla JavaScript modules
-   ↓
-LocalStorage
-   ↓
-Local scoring + recommendation engine
-```
-
-There is currently **no backend, database, external AI service, or cloud persistence**. User records remain in the browser.
-
-## Tech stack
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Browser LocalStorage
+These are **application-defined labels**, not clinically validated thresholds. The score is informational only and must not be used as a medical or psychological diagnosis or as a substitute for professional support.
 
 ## Run locally
+
+From the repository root, start a local static server:
 
 ```bash
 python -m http.server 8765 --bind 127.0.0.1
 ```
 
-Then open `http://127.0.0.1:8765/index.html` in a browser.
+Then open [http://127.0.0.1:8765/index.html](http://127.0.0.1:8765/index.html).
 
-## Roadmap
-
-- [ ] Add backend authentication and persistence
-- [ ] Add secure multi-user storage
-- [ ] Improve longitudinal trend analysis
-- [ ] Improve recommendation explainability
-- [ ] Add optional AI-assisted summaries
-- [ ] Add privacy-conscious anonymised analytics
-- [ ] Add automated tests and CI
-- [ ] Deploy a public demo
+If your system uses `python3`, run `python3 -m http.server 8765 --bind 127.0.0.1` instead.
 
 ## Project status
 
-**Prototype / active learning project.** The current version intentionally keeps the architecture simple while exploring the product and scoring workflow.
+Prototype / learning project. Planned future work includes optional backend persistence, secure multi-user storage, improved trend analysis, explainable recommendations, automated tests, and deployment. These are roadmap items, not claims about the current implementation.
